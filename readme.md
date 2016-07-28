@@ -28,8 +28,7 @@ to install it you need to have [Node](http://nodejs.org/) and [Npm](https://www.
 
 In order to run the simulator we need to have a redis server running.
 
-    cd redis-2.8.x/src
-    ./redis-server
+    redis-server
 
 **All the following commands must be run in the project root folder.**
 
