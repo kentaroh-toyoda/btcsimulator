@@ -19,7 +19,7 @@
     "backbone-pageable": "1.4.1",
     "backbone-relational": "0.8.7",
     "backbone.stickit": "0.6.3",
-    "Flat-UI": "2.1.1",
+    "flat-ui": "2.1.1",
     "jquery.transit": "~0.9.9",
     "i18next": "1.7.1",
     "nprogress": "0.1.2",
@@ -55,7 +55,7 @@
         "js/jquery.fileupload-image.js"
       ]
     },
-    "Flat-UI": {
+    "flat-ui": {
       "main": [
         "js/jquery-ui-1.10.3.custom.min.js",
         "js/jquery.ui.touch-punch.min.js",
