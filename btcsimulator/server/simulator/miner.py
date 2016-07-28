@@ -15,8 +15,12 @@ class Miner(object):
 
     # Network block rate a.k.a 1 block every ten minutes
     BLOCK_RATE = 1.0 / 600.0
+
+    # Block size is now 1MB.
+    BLOCK_SIZE = 1000
+
     # A miner is able to verify 200KBytes per seconds
-    VERIFY_RATE = 200*1024
+    VERIFY_RATE = 200 * 1024
 
     def __init__(self, env, store, hashrate, verifyrate, seed_block):
         # Simulation environment
@@ -27,7 +31,7 @@ class Miner(object):
         self.socket = Socket(env, store, self.id)
         # Miner computing percentage of total network
         self.hashrate = hashrate
-        # Miner block erification rate
+        # Miner block verification rate
         self.verifyrate = verifyrate
         # Store seed block
         self.seed_block = seed_block
@@ -72,7 +76,7 @@ class Miner(object):
         while True:
             try:
                 # Determine block size
-                block_size = 1024*200*numpy.random.random()
+                block_size = 1024 * BLOCK_SIZE * numpy.random.random()
                 # Determine the time the block will be mined depending on the miner hashrate
                 time = numpy.random.exponential(1/self.hashrate, 1)[0]
                 # Wait for the block to be mined
@@ -139,7 +143,7 @@ class Miner(object):
         # If the previous block is not in miner blocks it is not possible to validate current block
         if block.prev not in self.blocks:
             return 0
-        # If block height isnt previous block + 1 it will not be valid
+        # If block height isn't previous block + 1 it will not be valid
         if block.height != self.blocks[block.prev].height + 1:
             return -1
         return 1
